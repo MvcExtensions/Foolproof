@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F5AD1CB-0B14-4BEC-A5F2-631CFE045732}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcExtensions</RootNamespace>
+    <AssemblyName>MvcExtensions.Foolproof</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\MvcExtensions.Foolproof.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\MvcExtensions.Foolproof.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MVC Foolproof Validation">
+      <HintPath>..\packages\foolproof.0.9.4048\lib\MVC Foolproof Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedFiles\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="RequiredIfRegExMatchAttributeMetadata.cs" />
+    <Compile Include="RequiredIfModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="RequiredIfNotRegExMatchModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="RequiredIfRegExMatchModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="RequiredIfTrueAttributeMetadata.cs" />
+    <Compile Include="RequiredIfNotEmptyAttributeMetadata.cs" />
+    <Compile Include="RequiredIfNotRegExMatchAttributeMetadata.cs" />
+    <Compile Include="RequiredIfNotAttributeMetadata.cs" />
+    <Compile Include="RequiredIfFalseAttributeMetadata.cs" />
+    <Compile Include="RequiredIfEmptyAttributeMetadata.cs" />
+    <Compile Include="EqualToModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="GreaterThanModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="GreaterThanOrEqualToAttributeMetadata.cs" />
+    <Compile Include="LessThanAttributeMetadata.cs" />
+    <Compile Include="LessThanOrEqualToAttributeMetadata.cs" />
+    <Compile Include="NotEqualToAttributeMetadata.cs" />
+    <Compile Include="RegularExpressionIfAttributeMetadata.cs" />
+    <Compile Include="RequiredIfAttributeMetadata.cs" />
+    <Compile Include="GreaterThanAttributeMetadata.cs" />
+    <Compile Include="EqualToAttributeMetadata.cs" />
+    <Compile Include="GreaterThanOrEqualToModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="LessThanModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="LessThanOrEqualToModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="NotEqualToModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="RegularExpressionIfModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequiredIfEmptyModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="RequiredIfFalseModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="RequiredIfNotEmptyModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="RequiredIfNotModelMetadataItemBuilderExtensions.cs" />
+    <Compile Include="RequiredIfTrueModelMetadataItemBuilderExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcExtensions\MvcExtensions.csproj">
+      <Project>{36D776AA-6B96-4D33-B7B5-7F4A5376DD37}</Project>
+      <Name>MvcExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\mvcfoolproof.unobtrusive.min.js" />
+    <Content Include="scripts\MvcFoolproofJQueryValidation.min.js" />
+    <Content Include="scripts\MvcFoolproofValidation.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
