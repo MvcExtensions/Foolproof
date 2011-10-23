@@ -1,6 +1,6 @@
 #region Copyright
 // Copyright (c) 2009 - 2011, Kazi Manzur Rashid <kazimanzurrashid@gmail.com>, hazzik <hazzik@gmail.com>.
-// This source is subject to the Microsoft Public License. 
+// This source is subject to the Microsoft public License. 
 // See http://www.microsoft.com/opensource/licenses.mspx#Ms-PL. 
 // All other rights reserved.
 #endregion
@@ -13,7 +13,7 @@ namespace MvcExtensions
     /// <summary>
     /// Adds validation for <see cref="RequiredIfNotAttribute"/>
     /// </summary>
-    public class RequiredIfNotModelMetadataItemBuilderExtensions
+    public static class RequiredIfNotModelMetadataItemBuilderExtensions
     {
         /// <summary>
         /// Sets the range of value, this comes into action when is <code>Required</code> is <code>true</code>.
@@ -22,7 +22,7 @@ namespace MvcExtensions
         /// <param name="otherProperty">The other property.</param>
         /// <param name="dependentValue"></param>
         /// <returns></returns>
-        public ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue)
+        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue)
             where TItem : ModelMetadataItem where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {
             return RequiredIfNot(self, otherProperty, dependentValue, null, null, null);
@@ -36,7 +36,7 @@ namespace MvcExtensions
         /// <param name="self">The instance.</param>
         /// <param name="otherProperty">The other property.</param>
         /// <returns></returns>
-        public ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue, string errorMessage)
+        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue, string errorMessage)
             where TItem : ModelMetadataItem
             where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {
@@ -51,7 +51,7 @@ namespace MvcExtensions
         /// <param name="self">The instance.</param>
         /// <param name="otherProperty">The other property.</param>
         /// <returns></returns>
-        public ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue, Func<string> errorMessage)
+        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue, Func<string> errorMessage)
             where TItem : ModelMetadataItem
             where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {
@@ -67,7 +67,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        public ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue, Type errorMessageResourceType, string errorMessageResourceName)
+        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue, Type errorMessageResourceType, string errorMessageResourceName)
             where TItem : ModelMetadataItem
             where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {
@@ -84,7 +84,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        protected virtual ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
+        private static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNot<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, object dependentValue, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
             where TItem : ModelMetadataItem
             where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {

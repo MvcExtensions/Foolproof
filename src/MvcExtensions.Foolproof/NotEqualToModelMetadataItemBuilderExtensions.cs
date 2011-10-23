@@ -1,6 +1,6 @@
 #region Copyright
 // Copyright (c) 2009 - 2011, Kazi Manzur Rashid <kazimanzurrashid@gmail.com>, hazzik <hazzik@gmail.com>.
-// This source is subject to the Microsoft Public License. 
+// This source is subject to the Microsoft public License. 
 // See http://www.microsoft.com/opensource/licenses.mspx#Ms-PL. 
 // All other rights reserved.
 #endregion
@@ -13,7 +13,7 @@ namespace MvcExtensions
     /// <summary>
     /// Adds validation for <see cref="NotEqualToAttribute"/>
     /// </summary>
-    public class NotEqualToModelMetadataItemBuilderExtensions
+    public static class NotEqualToModelMetadataItemBuilderExtensions
     {
         /// <summary>
         /// Sets the range of value, this comes into action when is <code>Required</code> is <code>true</code>.
@@ -21,7 +21,7 @@ namespace MvcExtensions
         /// <param name="self">The instance.</param>
         /// <param name="otherProperty">The other property.</param>
         /// <returns></returns>
-        public ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty)
+        public static ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty)
             where TItem : ModelMetadataItem where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {
             return NotEqualTo(self, otherProperty, null, null, null);
@@ -34,7 +34,7 @@ namespace MvcExtensions
         /// <param name="errorMessage">The error message.</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, string errorMessage)
+        public static ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, string errorMessage)
             where TItem : ModelMetadataItem
             where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {
@@ -48,7 +48,7 @@ namespace MvcExtensions
         /// <param name="errorMessage">The error message.</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Func<string> errorMessage)
+        public static ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Func<string> errorMessage)
             where TItem : ModelMetadataItem
             where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {
@@ -63,7 +63,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        public ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName)
+        public static ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName)
             where TItem : ModelMetadataItem
             where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {
@@ -79,7 +79,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        protected virtual ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
+        private static ModelMetadataItemBuilder<TItem, TItemBuilder> NotEqualTo<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
             where TItem : ModelMetadataItem
             where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
         {
