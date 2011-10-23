@@ -35,7 +35,7 @@ namespace MvcExtensions
         {
             var attribute = new LessThanAttribute(OtherProperty);
             PopulateErrorMessage(attribute);
-            return new DataAnnotationsModelValidator<LessThanAttribute>(modelMetadata, context, attribute);
+            return new FoolproofValidator(modelMetadata, context, attribute);
         }
     }
 }

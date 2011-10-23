@@ -45,7 +45,7 @@ namespace MvcExtensions
         {
             var attribute = new RequiredIfRegExMatchAttribute(OtherProperty, Expression);
             PopulateErrorMessage(attribute);
-            return new DataAnnotationsModelValidator<RequiredIfRegExMatchAttribute>(modelMetadata, context, attribute);
+            return new FoolproofValidator(modelMetadata, context, attribute);
         }
     }
 }

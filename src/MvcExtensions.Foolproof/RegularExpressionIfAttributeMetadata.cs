@@ -65,7 +65,7 @@ namespace MvcExtensions
         {
             var attribute = new RegularExpressionIfAttribute(Expression, OtherProperty, Operator, DependentValue);
             PopulateErrorMessage(attribute);
-            return new DataAnnotationsModelValidator<RegularExpressionIfAttribute>(modelMetadata, context, attribute);
+            return new FoolproofValidator(modelMetadata, context, attribute);
         }
     }
 }

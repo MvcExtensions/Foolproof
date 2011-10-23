@@ -35,7 +35,7 @@ namespace MvcExtensions
         {
             var attribute = new GreaterThanOrEqualToAttribute(OtherProperty);
             PopulateErrorMessage(attribute);
-            return new DataAnnotationsModelValidator<GreaterThanOrEqualToAttribute>(modelMetadata, context, attribute);
+            return new FoolproofValidator(modelMetadata, context, attribute);
         }
     }
 }

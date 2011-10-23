@@ -35,7 +35,7 @@ namespace MvcExtensions
         {
             var attribute = new RequiredIfFalseAttribute(OtherProperty);
             PopulateErrorMessage(attribute);
-            return new DataAnnotationsModelValidator<RequiredIfFalseAttribute>(modelMetadata, context, attribute);
+            return new FoolproofValidator(modelMetadata, context, attribute);
         }
     }
 }
