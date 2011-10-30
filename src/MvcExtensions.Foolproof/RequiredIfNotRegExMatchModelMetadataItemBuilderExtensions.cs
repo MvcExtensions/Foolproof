@@ -22,8 +22,8 @@ namespace MvcExtensions
         /// <param name="otherProperty">The other property.</param>
         /// <param name="expression"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNotRegExMatch<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, string expression)
-            where TItem : ModelMetadataItem where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfNotRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIfNotRegExMatch(self, otherProperty, expression, null, null, null);
         }
@@ -36,9 +36,8 @@ namespace MvcExtensions
         /// <param name="expression"></param>
         /// <param name="errorMessage">The error message.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNotRegExMatch<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, string expression, string errorMessage)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfNotRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, string errorMessage)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIfNotRegExMatch(self, otherProperty, expression, () => errorMessage);
         }
@@ -51,9 +50,8 @@ namespace MvcExtensions
         /// <param name="expression"></param>
         /// <param name="errorMessage">The error message.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNotRegExMatch<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, string expression, Func<string> errorMessage)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfNotRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Func<string> errorMessage)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIfNotRegExMatch(self, otherProperty, expression, errorMessage, null, null);
         }
@@ -67,9 +65,8 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNotRegExMatch<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, string expression, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfNotRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Type errorMessageResourceType, string errorMessageResourceName)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIfNotRegExMatch(self, otherProperty, expression, null, errorMessageResourceType, errorMessageResourceName);
         }
@@ -84,9 +81,8 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        private static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfNotRegExMatch<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, string expression, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        private static ModelMetadataItemBuilder<TItemBuilder> RequiredIfNotRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             var validation = self.Item.GetValidationOrCreateNew<RequiredIfNotRegExMatchAttributeMetadata>();
 

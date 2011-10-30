@@ -23,8 +23,8 @@ namespace MvcExtensions
         /// <param name="operator"></param>
         /// <param name="dependentValue"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIf<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue)
-            where TItem : ModelMetadataItem where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIf(self, otherProperty, @operator, dependentValue, null, null, null);
         }
@@ -38,9 +38,8 @@ namespace MvcExtensions
         /// <param name="otherProperty">The other property.</param>
         /// <param name="operator"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIf<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue, string errorMessage)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue, string errorMessage)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIf(self, otherProperty, @operator, dependentValue, () => errorMessage);
         }
@@ -54,9 +53,8 @@ namespace MvcExtensions
         /// <param name="otherProperty">The other property.</param>
         /// <param name="operator"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIf<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue, Func<string> errorMessage)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue, Func<string> errorMessage)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIf(self, otherProperty, @operator, dependentValue, errorMessage, null, null);
         }
@@ -71,9 +69,8 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <param name="operator"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIf<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue, Type errorMessageResourceType, string errorMessageResourceName)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIf(self, otherProperty, @operator, dependentValue, null, errorMessageResourceType, errorMessageResourceName);
         }
@@ -89,9 +86,8 @@ namespace MvcExtensions
         /// <param name="operator"></param>
         /// <param name="dependentValue"></param>
         /// <returns></returns>
-        private static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIf<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        private static ModelMetadataItemBuilder<TItemBuilder> RequiredIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Operator @operator, object dependentValue, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             var validation = self.Item.GetValidationOrCreateNew<RequiredIfAttributeMetadata>();
 

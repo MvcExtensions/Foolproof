@@ -21,8 +21,8 @@ namespace MvcExtensions
         /// <param name="self">The instance.</param>
         /// <param name="otherProperty">The other property.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfTrue<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty)
-            where TItem : ModelMetadataItem where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfTrue<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty) 
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIfTrue(self, otherProperty, null, null, null);
         }
@@ -34,9 +34,8 @@ namespace MvcExtensions
         /// <param name="errorMessage">The error message.</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfTrue<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, string errorMessage)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfTrue<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string errorMessage) 
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIfTrue(self, otherProperty, () => errorMessage);
         }
@@ -48,9 +47,8 @@ namespace MvcExtensions
         /// <param name="errorMessage">The error message.</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfTrue<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Func<string> errorMessage)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfTrue<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Func<string> errorMessage) 
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIfTrue(self, otherProperty, errorMessage, null, null);
         }
@@ -63,9 +61,8 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfTrue<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfTrue<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName) 
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             return RequiredIfTrue(self, otherProperty, null, errorMessageResourceType, errorMessageResourceName);
         }
@@ -79,9 +76,8 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        private static ModelMetadataItemBuilder<TItem, TItemBuilder> RequiredIfTrue<TItem, TItemBuilder>(this ModelMetadataItemBuilder<TItem, TItemBuilder> self, string otherProperty, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItem : ModelMetadataItem
-            where TItemBuilder : ModelMetadataItemBuilder<TItem, TItemBuilder>
+        private static ModelMetadataItemBuilder<TItemBuilder> RequiredIfTrue<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName) 
+            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
         {
             var validation = self.Item.GetValidationOrCreateNew<RequiredIfTrueAttributeMetadata>();
 
