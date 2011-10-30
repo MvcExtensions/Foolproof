@@ -21,12 +21,11 @@ namespace MvcExtensions
         /// <param name="self">The instance.</param>
         /// <param name="otherProperty">The other property.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> EqualTo<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> EqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty)
         {
             return EqualTo(self, otherProperty, null, null, null);
         }
-
+        
         /// <summary>
         /// Sets the range of value, this comes into action when is <code>Required</code> is <code>true</code>.
         /// </summary>
@@ -34,8 +33,7 @@ namespace MvcExtensions
         /// <param name="errorMessage">The error message.</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> EqualTo<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string errorMessage)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> EqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string errorMessage)
         {
             return EqualTo(self, otherProperty, () => errorMessage);
         }
@@ -47,8 +45,7 @@ namespace MvcExtensions
         /// <param name="errorMessage">The error message.</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> EqualTo<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Func<string> errorMessage)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> EqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Func<string> errorMessage)
         {
             return EqualTo(self, otherProperty, errorMessage, null, null);
         }
@@ -61,8 +58,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> EqualTo<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> EqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName)
         {
             return EqualTo(self, otherProperty, null, errorMessageResourceType, errorMessageResourceName);
         }
@@ -76,8 +72,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        private static ModelMetadataItemBuilder<TItemBuilder> EqualTo<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        private static ModelMetadataItemBuilder<TValue> EqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
         {
             var validation = self.Item.GetValidationOrCreateNew<EqualToAttributeMetadata>();
 

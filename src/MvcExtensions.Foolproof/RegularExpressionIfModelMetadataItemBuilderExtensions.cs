@@ -24,8 +24,7 @@ namespace MvcExtensions
         /// <param name="operator"></param>
         /// <param name="dependentValue"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> RegularExpressionIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Operator @operator, object dependentValue)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> RegularExpressionIf<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression, Operator @operator, object dependentValue)
         {
             return RegularExpressionIf(self, otherProperty, expression, @operator, dependentValue, null, null, null);
         }
@@ -40,8 +39,7 @@ namespace MvcExtensions
         /// <param name="expression"></param>
         /// <param name="operator"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> RegularExpressionIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Operator @operator, object dependentValue, string errorMessage)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> RegularExpressionIf<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression, Operator @operator, object dependentValue, string errorMessage)
         {
             return RegularExpressionIf(self, otherProperty, expression, @operator, dependentValue, () => errorMessage);
         }
@@ -56,8 +54,7 @@ namespace MvcExtensions
         /// <param name="expression"></param>
         /// <param name="operator"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> RegularExpressionIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Operator @operator, object dependentValue, Func<string> errorMessage)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> RegularExpressionIf<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression, Operator @operator, object dependentValue, Func<string> errorMessage)
         {
             return RegularExpressionIf(self, otherProperty, expression, @operator, dependentValue, errorMessage, null, null);
         }
@@ -73,8 +70,7 @@ namespace MvcExtensions
         /// <param name="expression"></param>
         /// <param name="operator"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> RegularExpressionIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Operator @operator, object dependentValue, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> RegularExpressionIf<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression, Operator @operator, object dependentValue, Type errorMessageResourceType, string errorMessageResourceName)
         {
             return RegularExpressionIf(self, otherProperty, expression, @operator, dependentValue, null, errorMessageResourceType, errorMessageResourceName);
         }
@@ -91,8 +87,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        private static ModelMetadataItemBuilder<TItemBuilder> RegularExpressionIf<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Operator @operator, object dependentValue, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        private static ModelMetadataItemBuilder<TValue> RegularExpressionIf<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression, Operator @operator, object dependentValue, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
         {
             var validation = self.Item.GetValidationOrCreateNew<RegularExpressionIfAttributeMetadata>();
 

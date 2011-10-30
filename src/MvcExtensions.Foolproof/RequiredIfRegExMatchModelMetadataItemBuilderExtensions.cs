@@ -22,8 +22,7 @@ namespace MvcExtensions
         /// <param name="otherProperty">The other property.</param>
         /// <param name="expression"></param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression) 
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> RequiredIfRegExMatch<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression) 
         {
             return RequiredIfRegExMatch(self, otherProperty, expression, null, null, null);
         }
@@ -36,8 +35,7 @@ namespace MvcExtensions
         /// <param name="expression"></param>
         /// <param name="errorMessage">The error message.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, string errorMessage) 
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> RequiredIfRegExMatch<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression, string errorMessage) 
         {
             return RequiredIfRegExMatch(self, otherProperty, expression, () => errorMessage);
         }
@@ -50,8 +48,7 @@ namespace MvcExtensions
         /// <param name="expression"></param>
         /// <param name="errorMessage">The error message.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Func<string> errorMessage) 
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> RequiredIfRegExMatch<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression, Func<string> errorMessage) 
         {
             return RequiredIfRegExMatch(self, otherProperty, expression, errorMessage, null, null);
         }
@@ -65,8 +62,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TItemBuilder> RequiredIfRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Type errorMessageResourceType, string errorMessageResourceName) 
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        public static ModelMetadataItemBuilder<TValue> RequiredIfRegExMatch<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression, Type errorMessageResourceType, string errorMessageResourceName) 
         {
             return RequiredIfRegExMatch(self, otherProperty, expression, null, errorMessageResourceType, errorMessageResourceName);
         }
@@ -81,8 +77,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        private static ModelMetadataItemBuilder<TItemBuilder> RequiredIfRegExMatch<TItemBuilder>(this ModelMetadataItemBuilder<TItemBuilder> self, string otherProperty, string expression, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName) 
-            where TItemBuilder : ModelMetadataItemBuilder<TItemBuilder>
+        private static ModelMetadataItemBuilder<TValue> RequiredIfRegExMatch<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string expression, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName) 
         {
             var validation = self.Item.GetValidationOrCreateNew<RequiredIfRegExMatchAttributeMetadata>();
 
