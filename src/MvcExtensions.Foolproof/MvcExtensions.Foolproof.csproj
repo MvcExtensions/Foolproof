@@ -34,12 +34,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MVC Foolproof Validation">
-      <HintPath>..\packages\foolproof.0.9.4048\lib\MVC Foolproof Validation.dll</HintPath>
+      <HintPath>..\..\packages\foolproof.0.9.4048\lib\MVC Foolproof Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcExtensions">
+      <HintPath>..\..\packages\MvcExtensions.2.5.0-rc1\lib\net40\MvcExtensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\references\AspNetMvc3\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -81,12 +87,6 @@
     <Compile Include="RequiredIfNotEmptyModelMetadataItemBuilderExtensions.cs" />
     <Compile Include="RequiredIfNotModelMetadataItemBuilderExtensions.cs" />
     <Compile Include="RequiredIfTrueModelMetadataItemBuilderExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MvcExtensions\MvcExtensions.csproj">
-      <Project>{36D776AA-6B96-4D33-B7B5-7F4A5376DD37}</Project>
-      <Name>MvcExtensions</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\mvcfoolproof.unobtrusive.min.js" />
