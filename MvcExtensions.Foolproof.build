@@ -24,7 +24,7 @@
     <UsingTask AssemblyFile="$(MSBuildProjectDirectory)\Build\StyleCop\Microsoft.StyleCop.dll" TaskName="StyleCopTask"/>
     <UsingTask AssemblyFile="$(MSBuildProjectDirectory)\Build\Xunit\xunit.runner.msbuild.dll" TaskName="Xunit.Runner.MSBuild.CombineXunitXml"/>
 
-    <Target Name="Full" DependsOnTargets="Init;Clean;StyleCop;Simian;Build;FxCop;CodeCoverage;Deploy"/>
+    <Target Name="Full" DependsOnTargets="Init;Clean;StyleCop;Simian;Build;FxCop;Deploy"/>
 
     <Target Name="Init">
         <MakeDir Directories="$(artifactPath)" Condition="!Exists('$(artifactPath)')"/>
