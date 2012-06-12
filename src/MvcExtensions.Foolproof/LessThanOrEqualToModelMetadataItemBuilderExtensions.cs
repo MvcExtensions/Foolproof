@@ -23,7 +23,19 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty)
         {
-            return LessThanOrEqualTo(self, otherProperty, null, null, null);
+            return LessThanOrEqualTo(self, otherProperty, false);
+        }
+
+        /// <summary>
+        /// Sets the range of value, this comes into action when is <code>Required</code> is <code>true</code>.
+        /// </summary>
+        /// <param name="self">The instance.</param>
+        /// <param name="otherProperty">The other property.</param>
+        /// <param name="passOnNull">Pass on null</param>
+        /// <returns></returns>
+        public static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull)
+        {
+            return LessThanOrEqualTo(self, otherProperty, passOnNull, null, null, null);
         }
 
         /// <summary>
@@ -35,7 +47,20 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string errorMessage)
         {
-            return LessThanOrEqualTo(self, otherProperty, () => errorMessage);
+            return LessThanOrEqualTo(self, otherProperty, false, errorMessage);
+        }
+
+        /// <summary>
+        /// Sets the range of value, this comes into action when is <code>Required</code> is <code>true</code>.
+        /// </summary>
+        /// <param name="otherProperty">The other property.</param>
+        /// <param name="errorMessage">The error message.</param>
+        /// <param name="passOnNull">Pass on null</param>
+        /// <param name="self">The instance.</param>
+        /// <returns></returns>
+        public static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, string errorMessage)
+        {
+            return LessThanOrEqualTo(self, otherProperty, passOnNull, () => errorMessage);
         }
 
         /// <summary>
@@ -47,7 +72,20 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Func<string> errorMessage)
         {
-            return LessThanOrEqualTo(self, otherProperty, errorMessage, null, null);
+            return LessThanOrEqualTo(self, otherProperty, false, errorMessage);
+        }
+
+        /// <summary>
+        /// Sets the range of value, this comes into action when is <code>Required</code> is <code>true</code>.
+        /// </summary>
+        /// <param name="otherProperty">The other property.</param>
+        /// <param name="errorMessage">The error message.</param>
+        /// <param name="passOnNull">Pass on null</param>
+        /// <param name="self">The instance.</param>
+        /// <returns></returns>
+        public static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Func<string> errorMessage)
+        {
+            return LessThanOrEqualTo(self, otherProperty, passOnNull, errorMessage, null, null);
         }
 
         /// <summary>
@@ -60,7 +98,21 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName)
         {
-            return LessThanOrEqualTo(self, otherProperty, null, errorMessageResourceType, errorMessageResourceName);
+            return LessThanOrEqualTo(self, otherProperty, false, null, errorMessageResourceType, errorMessageResourceName);
+        }
+
+        /// <summary>
+        /// Sets the range of value, this comes into action when is <code>Required</code> is <code>true</code>.
+        /// </summary>
+        /// <param name="self">The instance.</param>
+        /// <param name="otherProperty">The other property.</param>
+        /// <param name="passOnNull">Pass on null</param>
+        /// <param name="errorMessageResourceType">Type of the error message resource.</param>
+        /// <param name="errorMessageResourceName">Name of the error message resource.</param>
+        /// <returns></returns>
+        public static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Type errorMessageResourceType, string errorMessageResourceName)
+        {
+            return LessThanOrEqualTo(self, otherProperty, passOnNull, null, errorMessageResourceType, errorMessageResourceName);
         }
 
         /// <summary>
@@ -69,14 +121,16 @@ namespace MvcExtensions
         /// <param name="self">The instance.</param>
         /// <param name="otherProperty">The other property.</param>
         /// <param name="errorMessage">The error message.</param>
+        /// <param name="passOnNull">Pass on null</param>
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        private static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
+        private static ModelMetadataItemBuilder<TValue> LessThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
         {
             var validation = self.Item.GetValidationOrCreateNew<LessThanOrEqualToAttributeMetadata>();
 
             validation.OtherProperty = otherProperty;
+            validation.PassOnNull = passOnNull;
             validation.ErrorMessage = errorMessage;
             validation.ErrorMessageResourceType = errorMessageResourceType;
             validation.ErrorMessageResourceName = errorMessageResourceName;

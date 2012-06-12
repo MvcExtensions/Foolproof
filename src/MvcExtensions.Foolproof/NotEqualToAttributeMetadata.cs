@@ -7,35 +7,20 @@
 
 namespace MvcExtensions
 {
-    using System.Web.Mvc;
     using Foolproof;
 
     /// <summary>
     /// Represents a class to store not-equal validation metadata.
     /// </summary>
-    public class NotEqualToAttributeMetadata : ModelValidationMetadata
+    public class NotEqualToAttributeMetadata : IsAttributeMetadata
     {
         /// <summary>
-        /// Gets or sets the other property.
+        /// Creates an instence of Foolproof attribute
         /// </summary>
-        /// <value>The property.</value>
-        public string OtherProperty
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Creates the validator.
-        /// </summary>
-        /// <param name="modelMetadata">The model metadata.</param>
-        /// <param name="context">The context.</param>
         /// <returns></returns>
-        protected override ModelValidator CreateValidatorCore(ExtendedModelMetadata modelMetadata, ControllerContext context)
+        protected override IsAttribute CreateAttribute()
         {
-            var attribute = new NotEqualToAttribute(OtherProperty);
-            PopulateErrorMessage(attribute);
-            return new FoolproofValidator(modelMetadata, context, attribute);
+            return new NotEqualToAttribute(OtherProperty);
         }
     }
 }

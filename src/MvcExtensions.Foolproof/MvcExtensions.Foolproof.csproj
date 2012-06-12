@@ -34,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MVC Foolproof Validation">
-      <HintPath>..\..\packages\foolproof.0.9.4048\lib\MVC Foolproof Validation.dll</HintPath>
+      <HintPath>..\..\packages\foolproof.0.9.4517\lib\MVC Foolproof Validation.dll</HintPath>
     </Reference>
-    <Reference Include="MvcExtensions">
-      <HintPath>..\..\packages\MvcExtensions.2.5.0-rc1\lib\net40\MvcExtensions.dll</HintPath>
+    <Reference Include="MvcExtensions, Version=2.5.0.0, Culture=neutral, PublicKeyToken=ee6190c4449c24bc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvcExtensions.2.5.0-rc8010\lib\net40\MvcExtensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -56,6 +56,7 @@
     <Compile Include="..\SharedFiles\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="IsAttributeMetadata.cs" />
     <Compile Include="RequiredIfRegExMatchAttributeMetadata.cs" />
     <Compile Include="RequiredIfModelMetadataItemBuilderExtensions.cs" />
     <Compile Include="RequiredIfNotRegExMatchModelMetadataItemBuilderExtensions.cs" />
