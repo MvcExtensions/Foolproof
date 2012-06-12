@@ -121,6 +121,7 @@ namespace MvcExtensions
         /// <param name="self">The instance.</param>
         /// <param name="otherProperty">The other property.</param>
         /// <param name="errorMessage">The error message.</param>
+        /// <param name="passOnNull">Pass on null</param>
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
