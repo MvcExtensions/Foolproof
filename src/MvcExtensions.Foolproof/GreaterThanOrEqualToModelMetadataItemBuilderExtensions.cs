@@ -23,7 +23,7 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty)
         {
-            return  GreaterThanOrEqualTo(self, otherProperty, false);
+            return GreaterThanOrEqualTo(self, otherProperty, false);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull)
         {
-            return  GreaterThanOrEqualTo(self, otherProperty, passOnNull, null, null, null);
+            return GreaterThanOrEqualTo(self, otherProperty, passOnNull, null, null, null);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string errorMessage)
         {
-            return  GreaterThanOrEqualTo(self, otherProperty, false, errorMessage);
+            return GreaterThanOrEqualTo(self, otherProperty, false, errorMessage);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, string errorMessage)
         {
-            return  GreaterThanOrEqualTo(self, otherProperty, passOnNull, () => errorMessage);
+            return GreaterThanOrEqualTo(self, otherProperty, passOnNull, () => errorMessage);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Func<string> errorMessage)
         {
-            return  GreaterThanOrEqualTo(self, otherProperty, false, errorMessage);
+            return GreaterThanOrEqualTo(self, otherProperty, false, errorMessage);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Func<string> errorMessage)
         {
-            return  GreaterThanOrEqualTo(self, otherProperty, passOnNull, errorMessage, null, null);
+            return GreaterThanOrEqualTo(self, otherProperty, passOnNull, errorMessage, null, null);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName)
         {
-            return  GreaterThanOrEqualTo(self, otherProperty, false, null, errorMessageResourceType, errorMessageResourceName);
+            return GreaterThanOrEqualTo(self, otherProperty, false, null, errorMessageResourceType, errorMessageResourceName);
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace MvcExtensions
         /// <returns></returns>
         public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Type errorMessageResourceType, string errorMessageResourceName)
         {
-            return  GreaterThanOrEqualTo(self, otherProperty, passOnNull, null, errorMessageResourceType, errorMessageResourceName);
+            return GreaterThanOrEqualTo(self, otherProperty, passOnNull, null, errorMessageResourceType, errorMessageResourceName);
         }
 
         /// <summary>
