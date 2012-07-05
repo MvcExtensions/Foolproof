@@ -21,7 +21,7 @@ namespace MvcExtensions
         /// <param name="self">The instance.</param>
         /// <param name="otherProperty">The other property.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TValue>  GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty)
+        public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty)
         {
             return  GreaterThanOrEqualTo(self, otherProperty, false);
         }
@@ -33,7 +33,7 @@ namespace MvcExtensions
         /// <param name="otherProperty">The other property.</param>
         /// <param name="passOnNull">Pass on null</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TValue>  GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull)
+        public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull)
         {
             return  GreaterThanOrEqualTo(self, otherProperty, passOnNull, null, null, null);
         }
@@ -45,7 +45,7 @@ namespace MvcExtensions
         /// <param name="errorMessage">The error message.</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TValue>  GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string errorMessage)
+        public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, string errorMessage)
         {
             return  GreaterThanOrEqualTo(self, otherProperty, false, errorMessage);
         }
@@ -58,7 +58,7 @@ namespace MvcExtensions
         /// <param name="passOnNull">Pass on null</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TValue>  GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, string errorMessage)
+        public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, string errorMessage)
         {
             return  GreaterThanOrEqualTo(self, otherProperty, passOnNull, () => errorMessage);
         }
@@ -70,7 +70,7 @@ namespace MvcExtensions
         /// <param name="errorMessage">The error message.</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TValue>  GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Func<string> errorMessage)
+        public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Func<string> errorMessage)
         {
             return  GreaterThanOrEqualTo(self, otherProperty, false, errorMessage);
         }
@@ -83,7 +83,7 @@ namespace MvcExtensions
         /// <param name="passOnNull">Pass on null</param>
         /// <param name="self">The instance.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TValue>  GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Func<string> errorMessage)
+        public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Func<string> errorMessage)
         {
             return  GreaterThanOrEqualTo(self, otherProperty, passOnNull, errorMessage, null, null);
         }
@@ -96,7 +96,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TValue>  GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName)
+        public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, Type errorMessageResourceType, string errorMessageResourceName)
         {
             return  GreaterThanOrEqualTo(self, otherProperty, false, null, errorMessageResourceType, errorMessageResourceName);
         }
@@ -110,7 +110,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        public static ModelMetadataItemBuilder<TValue>  GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Type errorMessageResourceType, string errorMessageResourceName)
+        public static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Type errorMessageResourceType, string errorMessageResourceName)
         {
             return  GreaterThanOrEqualTo(self, otherProperty, passOnNull, null, errorMessageResourceType, errorMessageResourceName);
         }
@@ -125,7 +125,7 @@ namespace MvcExtensions
         /// <param name="errorMessageResourceType">Type of the error message resource.</param>
         /// <param name="errorMessageResourceName">Name of the error message resource.</param>
         /// <returns></returns>
-        private static ModelMetadataItemBuilder<TValue>  GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
+        private static ModelMetadataItemBuilder<TValue> GreaterThanOrEqualTo<TValue>(this ModelMetadataItemBuilder<TValue> self, string otherProperty, bool passOnNull, Func<string> errorMessage, Type errorMessageResourceType, string errorMessageResourceName)
         {
             var validation = self.Item.GetValidationOrCreateNew<GreaterThanOrEqualToAttributeMetadata>();
 
