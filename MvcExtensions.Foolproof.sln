@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedFiles", "SharedFiles", "{1AA92940-0B90-42B2-8E7B-A85F6248FB94}"
 	ProjectSection(SolutionItems) = preProject
 		build.bat = build.bat
@@ -8,11 +8,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedFiles", "SharedFiles"
 		src\SharedFiles\CommonAssemblyInfo.cs = src\SharedFiles\CommonAssemblyInfo.cs
 		InstallPackages.bat = InstallPackages.bat
 		license.txt = license.txt
-		MvcExtensions.build = MvcExtensions.build
+		MvcExtensions.Foolproof.build = MvcExtensions.Foolproof.build
 		src\SharedFiles\MvcExtensions.snk = src\SharedFiles\MvcExtensions.snk
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcExtensions.Foolproof", "src\MvcExtensions.Foolproof\MvcExtensions.Foolproof.csproj", "{7F5AD1CB-0B14-4BEC-A5F2-631CFE045732}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{730D3027-2B19-4EF7-8BF2-31C3E85E81E3}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
