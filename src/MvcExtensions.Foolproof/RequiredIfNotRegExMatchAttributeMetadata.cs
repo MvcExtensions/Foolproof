@@ -8,24 +8,13 @@
 namespace MvcExtensions
 {
     using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
     using Foolproof;
 
     /// <summary>
     /// Represents a class to store required-if-not-regex-match validation metadata.
     /// </summary>
-    public class RequiredIfNotRegExMatchAttributeMetadata : ModelValidationMetadata
+    public class RequiredIfNotRegExMatchAttributeMetadata : ContingentValidationAttributeMetadata<RequiredIfNotRegExMatchAttribute>
     {
-        /// <summary>
-        /// Gets or sets the other property.
-        /// </summary>
-        /// <value>The property.</value>
-        public string OtherProperty
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// Gets or sets the expression.
         /// </summary>
@@ -34,18 +23,6 @@ namespace MvcExtensions
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// Creates the validator.
-        /// </summary>
-        /// <param name="modelMetadata">The model metadata.</param>
-        /// <param name="context">The context.</param>
-        /// <returns></returns>
-        protected override ModelValidator CreateValidatorCore(ExtendedModelMetadata modelMetadata, ControllerContext context)
-        {
-
-            return new FoolproofValidator(modelMetadata, context, (RequiredIfNotRegExMatchAttribute)CreateValidationAttribute());
         }
 
         /// <summary>

@@ -8,35 +8,13 @@
 namespace MvcExtensions
 {
     using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
     using Foolproof;
 
     /// <summary>
     /// Represents a class to store required-if-empty validation metadata.
     /// </summary>
-    public class RequiredIfEmptyAttributeMetadata : ModelValidationMetadata
+    public class RequiredIfEmptyAttributeMetadata : ContingentValidationAttributeMetadata<RequiredIfEmptyAttribute>
     {
-        /// <summary>
-        /// Gets or sets the other property.
-        /// </summary>
-        /// <value>The property.</value>
-        public string OtherProperty
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Creates the validator.
-        /// </summary>
-        /// <param name="modelMetadata">The model metadata.</param>
-        /// <param name="context">The context.</param>
-        /// <returns></returns>
-        protected override ModelValidator CreateValidatorCore(ExtendedModelMetadata modelMetadata, ControllerContext context)
-        {
-            return new FoolproofValidator(modelMetadata, context, (RequiredIfEmptyAttribute) CreateValidationAttribute());
-        }
-
         /// <summary>
         /// Creates validation attribute
         /// </summary>
@@ -47,6 +25,7 @@ namespace MvcExtensions
         {
             var attribute = new RequiredIfEmptyAttribute(OtherProperty);
             PopulateErrorMessage(attribute);
+
             return attribute;
         }
     }

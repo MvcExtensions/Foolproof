@@ -8,24 +8,13 @@
 namespace MvcExtensions
 {
     using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
     using Foolproof;
 
     /// <summary>
     /// Represents a class to store required-if validation metadata.
     /// </summary>
-    public class RequiredIfAttributeMetadata : ModelValidationMetadata
+    public class RequiredIfAttributeMetadata : ContingentValidationAttributeMetadata<RequiredIfAttribute>
     {
-        /// <summary>
-        /// Gets or sets the other property.
-        /// </summary>
-        /// <value>The property.</value>
-        public string OtherProperty
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// Gets or sets the dependent value.
         /// </summary>
@@ -44,17 +33,6 @@ namespace MvcExtensions
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// Creates the validator.
-        /// </summary>
-        /// <param name="modelMetadata">The model metadata.</param>
-        /// <param name="context">The context.</param>
-        /// <returns></returns>
-        protected override ModelValidator CreateValidatorCore(ExtendedModelMetadata modelMetadata, ControllerContext context)
-        {
-            return new FoolproofValidator(modelMetadata, context, (RequiredIfAttribute)CreateValidationAttribute());
         }
 
         /// <summary>
