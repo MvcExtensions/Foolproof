@@ -7,6 +7,7 @@
 
 namespace MvcExtensions
 {
+    using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
     using Foolproof;
 
@@ -53,9 +54,20 @@ namespace MvcExtensions
         /// <returns></returns>
         protected override ModelValidator CreateValidatorCore(ExtendedModelMetadata modelMetadata, ControllerContext context)
         {
+            return new FoolproofValidator(modelMetadata, context, (RequiredIfAttribute)CreateValidationAttribute());
+        }
+
+        /// <summary>
+        /// Creates validation attribute
+        /// </summary>
+        /// <returns>
+        /// Instance of ValidationAttribute type
+        /// </returns>
+        protected override ValidationAttribute CreateValidationAttribute()
+        {
             var attribute = new RequiredIfAttribute(OtherProperty, Operator, DependentValue);
             PopulateErrorMessage(attribute);
-            return new FoolproofValidator(modelMetadata, context, attribute);
+            return attribute;
         }
     }
 }

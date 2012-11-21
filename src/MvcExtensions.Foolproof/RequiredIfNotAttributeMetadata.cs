@@ -1,5 +1,5 @@
 #region Copyright
-// Copyright (c) 2009 - 2011, Kazi Manzur Rashid <kazimanzurrashid@gmail.com>, hazzik <hazzik@gmail.com>.
+// Copyright (c) 2009 - 2012, Kazi Manzur Rashid <kazimanzurrashid@gmail.com>, (c) 2011 - 2012 hazzik <hazzik@gmail.com>.
 // This source is subject to the Microsoft Public License. 
 // See http://www.microsoft.com/opensource/licenses.mspx#Ms-PL. 
 // All other rights reserved.
@@ -7,6 +7,7 @@
 
 namespace MvcExtensions
 {
+    using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
     using Foolproof;
 
@@ -43,9 +44,21 @@ namespace MvcExtensions
         /// <returns></returns>
         protected override ModelValidator CreateValidatorCore(ExtendedModelMetadata modelMetadata, ControllerContext context)
         {
+            return new FoolproofValidator(modelMetadata, context, (RequiredIfNotAttribute) CreateValidationAttribute());
+        }
+
+        /// <summary>
+        /// Creates validation attribute
+        /// </summary>
+        /// <returns>
+        /// Instance of ValidationAttribute type
+        /// </returns>
+        protected override ValidationAttribute CreateValidationAttribute()
+        {
             var attribute = new RequiredIfNotAttribute(OtherProperty, DependentValue);
             PopulateErrorMessage(attribute);
-            return new FoolproofValidator(modelMetadata, context, attribute);
+
+            return attribute;
         }
     }
 }
